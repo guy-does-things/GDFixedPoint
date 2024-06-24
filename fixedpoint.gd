@@ -1,7 +1,7 @@
 class_name GDFixedPoint
 extends Object
 
-const SHIFT_AMMOUNT = 8
+const SHIFT_AMMOUNT = 16
 const FIXEDPOINTONE = 1<<SHIFT_AMMOUNT
 
 func _init():
@@ -16,7 +16,7 @@ static func create_fixed_from_float(floating: float) -> int:
 	return int(floating * FIXEDPOINTONE)
 	
 static func fixed_floor(fixed:int):
-	return fixed & ~0xff
+	return fixed & ~0xffff
 
 static func fixed_ceil(fixed:int):
 	var integer_part: int = fixed >> SHIFT_AMMOUNT
